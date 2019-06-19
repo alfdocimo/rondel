@@ -1,4 +1,3 @@
-let Rondel = window.Rondel.default;
-let rondelInstance = new Rondel();
+const rondelInstance = new Rondel();
 
 console.log("rondelInstance", rondelInstance);
