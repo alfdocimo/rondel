@@ -27,7 +27,7 @@ module.exports = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, 'build'),
-    library: 'MyLibrary',
+    library: 'Rondel',
     libraryTarget: 'umd'
   },
   module: {
