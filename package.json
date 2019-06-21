@@ -7,7 +7,7 @@
     "build": "webpack",
     "test": "jest",
     "test:watch": "jest --watchAll",
-    "prepare": "npm run build"
+    "prepare": "yarn build"
   },
   "repository": {
     "type": "git",
