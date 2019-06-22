@@ -12,10 +12,9 @@ class Rondel {
       return null;
     }
 
-    // if undefined return empty object
+    // exposeDefault can be used to set the default value of an unset prop for an object
     const {
       exposeDefault = "unset property",
-      exposeEmptyObj,
       setNotAllowed
     } = modifiers;
 
@@ -38,7 +37,7 @@ class Rondel {
         return true;
       },
       get: (obj, prop) => {
-        return prop in obj ? obj[prop] : exposeEmptyObj ? {} : exposeDefault;
+        return prop in obj ? obj[prop] : exposeDefault;
       }
     };
     return new Proxy(obj, _handler);

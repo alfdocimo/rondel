@@ -1,6 +1,6 @@
 *Created by: Alfredo Narváez, 2019*
 
-# 🛡️ Rondel
+# 🛡️ Rondel [![Build Status](https://travis-ci.com/alfdocimo/rondel.svg?branch=master)](https://travis-ci.com/alfdocimo/rondel)
 
 Rondel is a library that makes use of the JavaScript Proxy API and exposes certain functionalities to control objects through the use of handlers.
 
