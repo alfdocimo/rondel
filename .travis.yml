@@ -17,5 +17,5 @@ install:
   - yarn
 script:
   - yarn test
-  - yarn prepare
   - sonar-scanner
+  - yarn prepare
