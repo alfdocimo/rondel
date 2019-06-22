@@ -14,10 +14,14 @@ addons:
     token:
       secure: SONAR_TOKEN
 
+env:
+  global:
+    - G_SONAR_TOKEN = 
+
 install:
   - yarn
 
 script:
   - yarn test
-  - sonar-scanner -X
+  - sonar-scanner -D"sonar.projectKey=alfdocimo_rondel" -D"sonar.organization=alfdocimo-github" -D"sonar.sources=./src/*" -D"sonar.tests=./__test__/*" -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=11cb64e183a8423d3526225b9f3eac4c6a684f30"
   - yarn prepare
