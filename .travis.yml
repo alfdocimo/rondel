@@ -19,5 +19,5 @@ install:
 
 script:
   - yarn test
-  - sonar-scanner -D"sonar.login="SONAR_TOKEN
+  - sonar-scanner -D"sonar.login="$Env:SONAR_TOKEN
   - yarn prepare
