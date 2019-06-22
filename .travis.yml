@@ -19,5 +19,5 @@ install:
 
 script:
   - yarn test
-  - sonar-scanner -D"sonar.projectKey=alfdocimo_rondel" -D"sonar.organization=alfdocimo-github" -D"sonar.sources=." -D"sonar.host.url=https://sonarcloud.io" -D"sonar.login=${SONAR_TOKEN}"
+  - sonar-scanner -D"sonar.login="SONAR_TOKEN
   - yarn prepare
