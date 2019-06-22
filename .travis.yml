@@ -1,12 +1,21 @@
 language: node_js
+dist: trusty
 cache:
   yarn: true
   directories:
     - node_modules
 node_js:
   - node
+
+addons:
+sonarcloud:
+  organization: "alfdocimo-github" # the key of the org you chose at step #3
+  token:
+    secure: SONAR_TOKEN
+
 install:
   - yarn
 script:
-- yarn test
-- yarn prepare
+  - yarn test
+  - yarn prepare
+  - sonar-scanner
