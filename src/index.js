@@ -19,7 +19,7 @@ class Rondel {
     } = modifiers;
 
     const _handler = {
-      set: (obj, prop, value) => {
+      set: (_obj, prop, value) => {
         if (setNotAllowed) throw new Error("Not allowed to set this property!");
         if (prop === "age") {
           if (!Number.isInteger(value)) {
@@ -31,13 +31,13 @@ class Rondel {
         }
 
         // The default behavior to store the value
-        obj[prop] = value;
+        _obj[prop] = value;
 
         // Indicate success
         return true;
       },
-      get: (obj, prop) => {
-        return prop in obj ? obj[prop] : exposeDefault;
+      get: (_obj, prop) => {
+        return prop in _obj ? _obj[prop] : exposeDefault;
       }
     };
     return new Proxy(obj, _handler);
