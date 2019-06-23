@@ -18,7 +18,7 @@ install:
   - yarn
 
 script:
-  - yarn test
+  - yarn test:prod
   - sonar-scanner
     -D"sonar.projectKey=alfdocimo_rondel"
     -D"sonar.organization=alfdocimo-github"
@@ -27,5 +27,5 @@ script:
     -D"sonar.exclusions=node_modules/**/*"
     -D"sonar.host.url=https://sonarcloud.io"
     -D"sonar.login=11cb64e183a8423d3526225b9f3eac4c6a684f30"
-    -D"sonar.testExecutionReportPaths=reports/test-reporter.xml"
+    -D"sonar.testExecutionReportPaths=reports/prod/test-reporter.xml"
   - yarn prepare
