@@ -1,7 +1,7 @@
 {
   "name": "@alfdocimo/rondel",
   "version": "1.0.5",
-  "description": "Javascript Minimal Starter Kit for building libraries",
+  "description": "Javascript library that makes use of the Proxy API to control objects through the use of handlers.",
   "main": "build/index.js",
   "scripts": {
     "build": "webpack",
