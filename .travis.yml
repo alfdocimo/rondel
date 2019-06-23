@@ -28,5 +28,4 @@ script:
     -D"sonar.host.url=https://sonarcloud.io"
     -D"sonar.login=11cb64e183a8423d3526225b9f3eac4c6a684f30"
     -D"sonar.testExecutionReportPaths=reports/test-reporter.xml"
-    -D"sonar.genericcoverage.unitTestReportPaths=reports/test-reporter.xml"
   - yarn prepare
