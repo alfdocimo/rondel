@@ -27,6 +27,6 @@ script:
     -D"sonar.exclusions=node_modules/**/*"
     -D"sonar.host.url=https://sonarcloud.io"
     -D"sonar.login=11cb64e183a8423d3526225b9f3eac4c6a684f30"
-    -D"sonar.testExecutionReportPaths=test-report.xml",
-    -D"sonar.genericcoverage.unitTestReportPaths=test-report.xml"
+    -D"sonar.testExecutionReportPaths=reports/test-report.xml",
+    -D"sonar.genericcoverage.unitTestReportPaths=reports/test-report.xml"
   - yarn prepare
