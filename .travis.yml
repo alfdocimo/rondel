@@ -1,12 +1,32 @@
 language: node_js
+dist: trusty
 cache:
   yarn: true
   directories:
     - node_modules
+
 node_js:
   - node
+
+addons:
+  sonarcloud:
+    organization: "alfdocimo-github" # the key of the org you chose at step #3
+    token:
+      secure: SONAR_TOKEN
+
 install:
   - yarn
+
 script:
-- yarn test
-- yarn prepare
+  - yarn test:prod
+  - sonar-scanner
+    -D"sonar.projectKey=alfdocimo_rondel"
+    -D"sonar.organization=alfdocimo-github"
+    -D"sonar.sources=src"
+    -D"sonar.tests=tests"
+    -D"sonar.exclusions=node_modules/**/*"
+    -D"sonar.host.url=https://sonarcloud.io"
+    -D"sonar.login=11cb64e183a8423d3526225b9f3eac4c6a684f30"
+    -D"sonar.testExecutionReportPaths=reports/prod/test-reporter.xml"
+    -D"sonar.javascript.lcov.reportPaths=coverage/lcov.info"
+  - yarn prepare

@@ -1,12 +1,13 @@
 {
   "name": "@alfdocimo/rondel",
   "version": "1.0.5",
-  "description": "Javascript Minimal Starter Kit for building libraries",
+  "description": "Javascript library that makes use of the Proxy API to control objects through the use of handlers.",
   "main": "build/index.js",
   "scripts": {
     "build": "webpack",
-    "test": "jest",
-    "test:watch": "jest --watchAll",
+    "test": "cross-env NODE_ENV=dev jest",
+    "test:prod": "cross-env NODE_ENV=prod jest --coverage",
+    "test:watch": "cross-env NODE_ENV=dev jest --watchAll",
     "prepare": "yarn build"
   },
   "repository": {
@@ -34,9 +35,11 @@
     "@babel/runtime": "^7.4.5",
     "babel-loader": "^8.0.6",
     "babel-preset-minify": "^0.5.0",
+    "cross-env": "^5.2.0",
     "css-loader": "^3.0.0",
     "file-loader": "^4.0.0",
     "jest": "^24.8.0",
+    "jest-sonar-reporter": "^2.0.0",
     "prettier": "^1.18.2",
     "prettier-webpack-plugin": "^1.2.0",
     "style-loader": "^0.23.1",
@@ -49,6 +52,35 @@
     "moduleNameMapper": {
       "\\.(jpg|jpeg|png|gif|eot|otf|webp|svg|ttf|woff|woff2|mp4|webm|wav|mp3|m4a|aac|oga)$": "<rootDir>/scripts/testMock.js",
       "\\.(css|less)$": "<rootDir>/scripts/testMock.js"
+    },
+    "testResultsProcessor": "jest-sonar-reporter",
+    "collectCoverageFrom": [
+      "src/*.js"
+    ],
+    "coveragePathIgnorePatterns": [
+      "/node_modules/"
+    ],
+    "coverageThreshold": {
+      "global": {
+        "statements": 65,
+        "branches": 65,
+        "functions": 65,
+        "lines": 65
+      }
+    }
+  },
+  "jestSonar": {
+    "env": {
+      "prod": {
+        "reportPath": "./reports/prod",
+        "reportFile": "test-reporter.xml",
+        "indent": 4
+      },
+      "dev": {
+        "reportPath": "./reports/dev",
+        "reportFile": "test-reporter.xml",
+        "indent": 4
+      }
     }
   }
 }
