@@ -1,26 +1,18 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<coverage generated="1561284886266" clover="3.2.0">
-  <project timestamp="1561284886266" name="All files">
-    <metrics statements="17" coveredstatements="12" conditionals="15" coveredconditionals="10" methods="4" coveredmethods="4" elements="36" coveredelements="26" complexity="0" loc="17" ncloc="17" packages="1" files="1" classes="1"/>
+<coverage generated="1561314720712" clover="3.2.0">
+  <project timestamp="1561314720712" name="All files">
+    <metrics statements="9" coveredstatements="9" conditionals="9" coveredconditionals="8" methods="4" coveredmethods="4" elements="22" coveredelements="21" complexity="0" loc="9" ncloc="9" packages="1" files="1" classes="1"/>
     <file name="index.js" path="C:\Users\anarvaez\Desktop\rondel\src\index.js">
-      <metrics statements="17" coveredstatements="12" conditionals="15" coveredconditionals="10" methods="4" coveredmethods="4"/>
-      <line num="3" count="1" type="stmt"/>
-      <line num="6" count="1" type="stmt"/>
-      <line num="8" count="4" type="cond" truecount="3" falsecount="1"/>
-      <line num="9" count="0" type="stmt"/>
-      <line num="12" count="0" type="stmt"/>
-      <line num="16" count="4" type="cond" truecount="1" falsecount="0"/>
-      <line num="18" count="4" type="stmt"/>
-      <line num="20" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="21" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="22" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="23" count="0" type="stmt"/>
-      <line num="25" count="1" type="cond" truecount="1" falsecount="1"/>
-      <line num="26" count="1" type="stmt"/>
-      <line num="31" count="0" type="stmt"/>
-      <line num="34" count="0" type="stmt"/>
-      <line num="37" count="5" type="cond" truecount="2" falsecount="0"/>
-      <line num="40" count="4" type="stmt"/>
+      <metrics statements="9" coveredstatements="9" conditionals="9" coveredconditionals="8" methods="4" coveredmethods="4"/>
+      <line num="4" count="1" type="stmt"/>
+      <line num="6" count="7" type="cond" truecount="4" falsecount="0"/>
+      <line num="7" count="1" type="stmt"/>
+      <line num="12" count="6" type="cond" truecount="1" falsecount="0"/>
+      <line num="14" count="6" type="stmt"/>
+      <line num="16" count="1" type="cond" truecount="1" falsecount="1"/>
+      <line num="17" count="1" type="stmt"/>
+      <line num="20" count="7" type="cond" truecount="2" falsecount="0"/>
+      <line num="23" count="6" type="stmt"/>
     </file>
   </project>
 </coverage>
