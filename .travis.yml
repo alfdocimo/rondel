@@ -19,12 +19,14 @@ install:
 
 script:
   - yarn test
-  - sonar-scanner 
-    -D"sonar.projectKey=alfdocimo_rondel" 
-    -D"sonar.organization=alfdocimo-github" 
-    -D"sonar.sources=src" 
-    -D"sonar.tests=tests" 
-    -D"sonar.exclusions=node_modules/**/*" 
-    -D"sonar.host.url=https://sonarcloud.io" 
+  - sonar-scanner
+    -D"sonar.projectKey=alfdocimo_rondel"
+    -D"sonar.organization=alfdocimo-github"
+    -D"sonar.sources=src"
+    -D"sonar.tests=tests"
+    -D"sonar.exclusions=node_modules/**/*"
+    -D"sonar.host.url=https://sonarcloud.io"
     -D"sonar.login=11cb64e183a8423d3526225b9f3eac4c6a684f30"
+    -D"sonar.testExecutionReportPaths=test-report.xml",
+    -D"sonar.genericcoverage.unitTestReportPaths=test-report.xml"
   - yarn prepare

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testExecutions version="1">
+    <file path="C:\Users\anarvaez\Desktop\rondel\tests\test.spec.js">
+        <testCase name="Runs without crashing" duration="8"/>
+        <testCase name="should create protected object" duration="6"/>
+        <testCase name="should be able to control default props from exposeDefault returns null from unset prop" duration="0"/>
+        <testCase name="should be able to control default props from exposeDefault returns empty string from unset prop" duration="1"/>
+        <testCase name="should be able to control default props from exposeDefault returns empty array from unset prop" duration="2"/>
+    </file>
+</testExecutions>

@@ -13,10 +13,7 @@ class Rondel {
     }
 
     // exposeDefault can be used to set the default value of an unset prop for an object
-    const {
-      exposeDefault = "unset property",
-      setNotAllowed
-    } = modifiers;
+    const { exposeDefault = "unset property", setNotAllowed } = modifiers;
 
     const _handler = {
       set: (_obj, prop, value) => {
