@@ -41,6 +41,22 @@ it("should create protected object and throw error", () => {
   }
 });
 
+it("should not allow to set private property", () => {
+  try {
+    const human = { name: "John", _secretProp: "shhh!" };
+    const myObj = rondel.createProtected({
+      obj: human,
+      modifiers: { restrictedPrivates: true }
+    });
+    myObj.nonSecretProp = "Hey there!";
+    myObj._secretProp = "Very obvious value";
+  } catch (e) {
+    expect(e).toEqual(
+      new Error(`Invalid attempt to set private "_secretProp" property`)
+    );
+  }
+});
+
 describe("should be able to control default props from exposeDefault", () => {
   it("returns null from unset prop", () => {
     const myObj = rondel.createProtected({

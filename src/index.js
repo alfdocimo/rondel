@@ -13,13 +13,19 @@ class Rondel {
     // exposeDefault can be used to set the default value of an unset prop for an object
     const {
       exposeDefault = "unset property",
-      setNotAllowed = false
+      setNotAllowed = false,
+      restrictedPrivates = true
     } = modifiers;
 
     const _handler = {
-      set: _obj => {
+      set: (_obj, key) => {
+        if (restrictedPrivates && key[0] === "_")
+          throw new Error(`Invalid attempt to set private "${key}" property`);
+
         if (setNotAllowed)
           throw new Error("Not allowed to set properties to this object");
+
+        return true;
       },
       get: (_obj, prop) => {
         return prop in _obj ? _obj[prop] : exposeDefault;
