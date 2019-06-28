@@ -5,6 +5,7 @@
   "main": "build/index.js",
   "scripts": {
     "build": "webpack",
+    "format": "prettier --write **/*.{js,jsx,css,md}",
     "test": "cross-env NODE_ENV=dev jest",
     "test:prod": "cross-env NODE_ENV=prod jest --coverage",
     "test:watch": "cross-env NODE_ENV=dev jest --watchAll",
