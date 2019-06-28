@@ -10,7 +10,7 @@ node_js:
 
 addons:
   sonarcloud:
-    organization: "alfdocimo-github" # the key of the org you chose at step #3
+    organization: 'alfdocimo-github' # the key of the org you chose at step #3
     token:
       secure: SONAR_TOKEN
 
@@ -18,6 +18,7 @@ install:
   - yarn
 
 script:
+  - yarn format
   - yarn test:prod
   - sonar-scanner
     -D"sonar.projectKey=alfdocimo_rondel"

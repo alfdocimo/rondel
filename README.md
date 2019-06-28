@@ -46,13 +46,13 @@ Okay! Once that's done, you're ready to go!
 Let's say you want to create a protected `Object`
 
 ```js
-import Rondel from "rondel";
+import Rondel from 'rondel';
 
 const rondel = new Rondel();
 
 const myObj = rondel.createProtected({
-  obj: { name: "John", lastName: "Doe" },
-  modifiers: {}
+  obj: { name: 'John', lastName: 'Doe' },
+  modifiers: {},
 });
 
 console.log(myObj.randomProp); // unset property
@@ -61,13 +61,13 @@ console.log(myObj.randomProp); // unset property
 How about controlling the undefined props of our objects?
 
 ```js
-import Rondel from "rondel";
+import Rondel from 'rondel';
 
 const rondel = new Rondel();
 
 const myObj = rondel.createProtected({
-  obj: { name: "John", lastName: "Doe" },
-  modifiers: { exposeDefault: [] }
+  obj: { name: 'John', lastName: 'Doe' },
+  modifiers: { exposeDefault: [] },
 });
 
 console.log(myObj.randomProp); // []
@@ -76,16 +76,16 @@ console.log(myObj.randomProp); // []
 Alright... how about restricting setting properties?
 
 ```js
-import Rondel from "rondel";
+import Rondel from 'rondel';
 
 const rondel = new Rondel();
 
 const myObj = rondel.createProtected({
-  obj: { name: "John", lastName: "Doe" },
-  modifiers: { exposeDefault: [], setNotAllowed: true }
+  obj: { name: 'John', lastName: 'Doe' },
+  modifiers: { exposeDefault: [], setNotAllowed: true },
 });
 
 console.log(myObj.randomProp); // []
 
-myObj.addPropHere = "Hello World!"; // Will throw error
+myObj.addPropHere = 'Hello World!'; // Will throw error
 ```
