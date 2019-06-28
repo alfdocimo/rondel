@@ -27,7 +27,7 @@ _A rondel (ˈrɒndl) is a circular piece of metal used for protection in suits o
 
 ![rondeljs](https://i.imgur.com/St4R0OL.png)
 
-# How to use:
+# Installing
 
 First things first! You gotta install `rondel` as a dependency, so go ahead and run:
 
@@ -42,6 +42,8 @@ npm install --save-dev rondel
 ```
 
 Okay! Once that's done, you're ready to go!
+
+# Protecting Objects:
 
 Let's say you want to create a protected `Object`
 
@@ -88,4 +90,97 @@ const myObj = rondel.createProtected({
 console.log(myObj.randomProp); // []
 
 myObj.addPropHere = 'Hello World!'; // Will throw error
+```
+
+# Querying Objects by props
+
+Proxies are very powerful. They also allow us to access dynamically generated properties.
+
+Let's look at the following snippet:
+
+```js
+const arr = rondel.getProtected([
+  {
+    name: 'John',
+    age: 30,
+    skills: ['React', 'Node'],
+    position: 'Sr Dev',
+    salary: 100000,
+  },
+  { name: 'Mathew', age: 26, skills: ['JavaScript'], salary: 0 },
+  {
+    name: 'Claudia',
+    nationality: null,
+    age: 33,
+    skills: ['AWS', 'Azure', 'DevOps', 'JavaScript'],
+    salary: 80000,
+  },
+]);
+```
+
+By using `findWhere<Property>Equals(<String>)` we'll get all the matching results
+
+```js
+arr.findWhereNameEquals('John')); // will give us all the object that contains John
+```
+
+## Other Examples
+
+```js
+arr.findWhereNationalityIsNull()); // will give us all the object that contains Claudia
+```
+
+```js
+arr.findWhereSkillsIncludes('JavaScript')); // will give us all the object that contains Mathew
+```
+
+Currently supported methods:
+
+**findWhereXEquals**
+
+Returns an array of objects of all matching <X> objects to value.
+
+```ts
+findWhereXEquals(value: any) : [{}];
+```
+
+**findWhereXIsNull**
+
+Returns an array of objects of all matching <X> null objects.
+
+```ts
+findWhereXIsNull() : [{}];
+```
+
+**findWhereXIsUndefined**
+
+Returns an array of objects of all matching <X> undefined objects.
+
+```ts
+findWhereXIsUndefined() : [{}];
+```
+
+**findWhereXIsEmpty**
+
+Returns an array of objects of all matching <X> Empty objects.
+
+```ts
+findWhereXIsEmpty() : [{}];
+```
+
+**findWhereXIsIncludes**
+
+Returns an array of objects of all matching <X> to the value/s provided.
+
+```ts
+findWhereXIsIncludes(value: any) : [{}];
+```
+
+**findWhereXIsLowerThan** & **findWhereXIsGreaterThan**
+
+Returns an array of objects of all matching <X> wether is lower or greater than a value provided.
+
+```ts
+findWhereXIsLowerThan(value: any) : [{}];
+findWhereXIsGreaterThan(value: any) : [{}];
 ```
