@@ -1,14 +1,11 @@
 module.exports = {
   presets: [
     [
-      "@babel/preset-env",
+      '@babel/preset-env',
       {
-        useBuiltIns: false
-      }
-    ]
+        useBuiltIns: false,
+      },
+    ],
   ],
-  plugins: [
-    "@babel/plugin-transform-runtime",
-    "@babel/plugin-proposal-class-properties"
-  ]
+  plugins: ['@babel/plugin-transform-runtime', '@babel/plugin-proposal-class-properties'],
 };
