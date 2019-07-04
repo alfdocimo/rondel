@@ -92,6 +92,34 @@ console.log(myObj.randomProp); // []
 myObj.addPropHere = 'Hello World!'; // Will throw error
 ```
 
+# Pseudo Type Validation
+
+_Rondel_ has a built-in type validation that can be triggered along with `validateTypes: true` on the `modifiers` object.
+We can then specify an array of the type of properties that we want to validate, so we end up getting something like this:
+
+```js
+const myObj = rondel.createProtected({
+  obj: { name: 'John', lastName: 'Doe' },
+  modifiers: { validateTypes: true, areStrings: ['lastName', 'name'] },
+});
+```
+
+if we then proceed to change `name` to a number like this:
+
+```js
+myObj.name = 123;
+```
+
+A TypeError with the message _Expected a string value for property name_ will be thrown.
+
+Currently supported:
+
+- areStrings
+- areNumbers
+- areObjects
+
+For more information please visit the [Test file](tests/test.spec.js)
+
 # Querying Objects by props
 
 Proxies are very powerful. They also allow us to access dynamically generated properties.
@@ -121,17 +149,17 @@ const arr = rondel.getProtected([
 By using `findWhere<Property>Equals(<String>)` we'll get all the matching results
 
 ```js
-arr.findWhereNameEquals('John')); // will give us all the object that contains John
+arr.findWhereNameEquals('John')); // will give us all the objects that contain John in the name property
 ```
 
 ## Other Examples
 
 ```js
-arr.findWhereNationalityIsNull()); // will give us all the object that contains Claudia
+arr.findWhereNationalityIsNull()); // will give us all the objects that contain null in the nationality property
 ```
 
 ```js
-arr.findWhereSkillsIncludes('JavaScript')); // will give us all the object that contains Mathew
+arr.findWhereSkillsIncludes('JavaScript')); // will give us all the objects that contain JavaScript inside an array of skills.
 ```
 
 Currently supported methods:

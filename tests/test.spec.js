@@ -5,6 +5,58 @@ test('Runs without crashing', () => {
   expect(rondel).toBeDefined();
 });
 
+describe('should validate types', () => {
+  it('should throw error if params are not specified type', () => {
+    try {
+      const myObj = rondel.createProtected({
+        obj: { name: 'John', lastName: 'Doe' },
+        modifiers: { validateTypes: true, areStrings: ['lastName', 'name'] },
+      });
+      myObj.name = 123;
+    } catch (error) {
+      expect(error).toEqual(new TypeError('Expected a string value for property name'));
+    }
+  });
+
+  it('should throw error if params are not specified type', () => {
+    try {
+      const myObj = rondel.createProtected({
+        obj: { name: 'John', lastName: 'Doe', age: 23 },
+        modifiers: { validateTypes: true, areStrings: ['lastName', 'name'], areNumbers: ['age'] },
+      });
+      myObj.age = 'invalid age';
+    } catch (error) {
+      expect(error).toEqual(new TypeError('Expected a number value for property age'));
+    }
+  });
+
+  it('should throw error if params are not specified type', () => {
+    try {
+      const myCar = rondel.createProtected({
+        obj: { type: 'Opel', year: 2007 },
+        modifiers: {
+          validateTypes: true,
+          areStrings: ['type'],
+          areNumbers: ['year'],
+        },
+      });
+      const myObj = rondel.createProtected({
+        obj: { name: 'John', lastName: 'Doe', age: 23, car: myCar },
+        modifiers: {
+          validateTypes: true,
+          areStrings: ['John'],
+          areNumbers: ['age'],
+          areObjects: ['car'],
+        },
+      });
+
+      myObj.car.type = 123;
+    } catch (error) {
+      expect(error).toEqual(new TypeError('Expected a string value for property type'));
+    }
+  });
+});
+
 it('should throw error if params are not correct', () => {
   try {
     rondel.createProtected({ name: 'John', lastName: 'Doe' });
@@ -13,6 +65,14 @@ it('should throw error if params are not correct', () => {
       new Error('Parameters supplied are either not objects or not correctly named'),
     );
   }
+});
+
+it('should be able to create an object without a modifiers obj', () => {
+  const myObj = rondel.createProtected({
+    obj: { name: 'John', lastName: 'Doe' },
+  });
+  myObj.name = 'Maria';
+  expect(myObj.name).toEqual('Maria');
 });
 
 it('should create protected object', () => {
