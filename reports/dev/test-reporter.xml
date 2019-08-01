@@ -1,25 +1,25 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <testExecutions version="1">
     <file path="C:\Users\anarvaez\Desktop\rondel\tests\test.spec.js">
-        <testCase name="Runs without crashing" duration="3"/>
+        <testCase name="Runs without crashing" duration="4"/>
         <testCase name="should validate types should throw error if params are not specified type" duration="2"/>
+        <testCase name="should validate types should throw error if params are not specified type" duration="1"/>
         <testCase name="should validate types should throw error if params are not specified type" duration="0"/>
-        <testCase name="should validate types should throw error if params are not specified type" duration="0"/>
-        <testCase name="should throw error if params are not correct" duration="1"/>
-        <testCase name="should be able to create an object without a modifiers obj" duration="0"/>
+        <testCase name="should throw error if params are not correct" duration="0"/>
+        <testCase name="should be able to create an object without a modifiers obj" duration="1"/>
         <testCase name="should create protected object" duration="0"/>
-        <testCase name="should create protected object and throw error" duration="0"/>
-        <testCase name="should not allow to set private property" duration="1"/>
-        <testCase name="should be able to control default props from exposeDefault returns null from unset prop" duration="0"/>
-        <testCase name="should be able to control default props from exposeDefault calls spyFunction from unset prop" duration="0"/>
-        <testCase name="should be able to control default props from exposeDefault returns empty string from unset prop" duration="1"/>
-        <testCase name="should be able to control default props from exposeDefault returns empty array from unset prop" duration="0"/>
-        <testCase name="should be able to interact with Objects through getProtected findWhereXEquals" duration="0"/>
+        <testCase name="should create protected object and throw error" duration="1"/>
+        <testCase name="should not allow to set private property" duration="0"/>
+        <testCase name="should be able to control default props from exposeDefault returns null from unset prop" duration="1"/>
+        <testCase name="should be able to control default props from exposeDefault calls spyFunction from unset prop" duration="1"/>
+        <testCase name="should be able to control default props from exposeDefault returns empty string from unset prop" duration="0"/>
+        <testCase name="should be able to control default props from exposeDefault returns empty array from unset prop" duration="1"/>
+        <testCase name="should be able to interact with Objects through getProtected findWhereXEquals" duration="1"/>
         <testCase name="should be able to interact with Objects through getProtected findWhereXIsNull" duration="1"/>
-        <testCase name="should be able to interact with Objects through getProtected findWhereXIsUndefined" duration="0"/>
+        <testCase name="should be able to interact with Objects through getProtected findWhereXIsUndefined" duration="1"/>
         <testCase name="should be able to interact with Objects through getProtected findWhereXIsEmpty" duration="0"/>
         <testCase name="should be able to interact with Objects through getProtected findWhereXIncludes" duration="1"/>
         <testCase name="should be able to interact with Objects through getProtected findWhereXIsLowerThan" duration="0"/>
-        <testCase name="should be able to interact with Objects through getProtected findWhereXIsGreaterThan" duration="0"/>
+        <testCase name="should be able to interact with Objects through getProtected findWhereXIsGreaterThan" duration="1"/>
     </file>
 </testExecutions>

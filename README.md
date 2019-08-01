@@ -52,7 +52,7 @@ import Rondel from 'rondel';
 
 const rondel = new Rondel();
 
-const myObj = rondel.createProtected({
+const myObj = rondel.create().protected({
   obj: { name: 'John', lastName: 'Doe' },
   modifiers: {},
 });
@@ -67,7 +67,7 @@ import Rondel from 'rondel';
 
 const rondel = new Rondel();
 
-const myObj = rondel.createProtected({
+const myObj = rondel.create().protected({
   obj: { name: 'John', lastName: 'Doe' },
   modifiers: { exposeDefault: [] },
 });
@@ -82,7 +82,7 @@ import Rondel from 'rondel';
 
 const rondel = new Rondel();
 
-const myObj = rondel.createProtected({
+const myObj = rondel.create().protected({
   obj: { name: 'John', lastName: 'Doe' },
   modifiers: { exposeDefault: [], setNotAllowed: true },
 });
@@ -98,7 +98,7 @@ _Rondel_ has a built-in type validation that can be triggered along with `valida
 We can then specify an array of the type of properties that we want to validate, so we end up getting something like this:
 
 ```js
-const myObj = rondel.createProtected({
+const myObj = rondel.create().protected({
   obj: { name: 'John', lastName: 'Doe' },
   modifiers: { validateTypes: true, areStrings: ['lastName', 'name'] },
 });
@@ -127,7 +127,7 @@ Proxies are very powerful. They also allow us to access dynamically generated pr
 Let's look at the following snippet:
 
 ```js
-const arr = rondel.getProtected([
+const arr = rondel.create().searchable([
   {
     name: 'John',
     age: 30,
@@ -149,17 +149,17 @@ const arr = rondel.getProtected([
 By using `findWhere<Property>Equals(<String>)` we'll get all the matching results
 
 ```js
-arr.findWhereNameEquals('John')); // will give us all the objects that contain John in the name property
+arr.findWhereNameEquals('John'); // will give us all the objects that contain John in the name property
 ```
 
 ## Other Examples
 
 ```js
-arr.findWhereNationalityIsNull()); // will give us all the objects that contain null in the nationality property
+arr.findWhereNationalityIsNull(); // will give us all the objects that contain null in the nationality property
 ```
 
 ```js
-arr.findWhereSkillsIncludes('JavaScript')); // will give us all the objects that contain JavaScript inside an array of skills.
+arr.findWhereSkillsIncludes('JavaScript'); // will give us all the objects that contain JavaScript inside an array of skills.
 ```
 
 Currently supported methods:

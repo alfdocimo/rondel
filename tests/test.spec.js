@@ -8,7 +8,7 @@ test('Runs without crashing', () => {
 describe('should validate types', () => {
   it('should throw error if params are not specified type', () => {
     try {
-      const myObj = rondel.createProtected({
+      const myObj = rondel.create().protected({
         obj: { name: 'John', lastName: 'Doe' },
         modifiers: { validateTypes: true, areStrings: ['lastName', 'name'] },
       });
@@ -20,7 +20,7 @@ describe('should validate types', () => {
 
   it('should throw error if params are not specified type', () => {
     try {
-      const myObj = rondel.createProtected({
+      const myObj = rondel.create().protected({
         obj: { name: 'John', lastName: 'Doe', age: 23 },
         modifiers: { validateTypes: true, areStrings: ['lastName', 'name'], areNumbers: ['age'] },
       });
@@ -32,7 +32,7 @@ describe('should validate types', () => {
 
   it('should throw error if params are not specified type', () => {
     try {
-      const myCar = rondel.createProtected({
+      const myCar = rondel.create().protected({
         obj: { type: 'Opel', year: 2007 },
         modifiers: {
           validateTypes: true,
@@ -40,7 +40,7 @@ describe('should validate types', () => {
           areNumbers: ['year'],
         },
       });
-      const myObj = rondel.createProtected({
+      const myObj = rondel.create().protected({
         obj: { name: 'John', lastName: 'Doe', age: 23, car: myCar },
         modifiers: {
           validateTypes: true,
@@ -59,7 +59,7 @@ describe('should validate types', () => {
 
 it('should throw error if params are not correct', () => {
   try {
-    rondel.createProtected({ name: 'John', lastName: 'Doe' });
+    rondel.create().protected({ name: 'John', lastName: 'Doe' });
   } catch (e) {
     expect(e).toEqual(
       new Error('Parameters supplied are either not objects or not correctly named'),
@@ -68,7 +68,7 @@ it('should throw error if params are not correct', () => {
 });
 
 it('should be able to create an object without a modifiers obj', () => {
-  const myObj = rondel.createProtected({
+  const myObj = rondel.create().protected({
     obj: { name: 'John', lastName: 'Doe' },
   });
   myObj.name = 'Maria';
@@ -77,7 +77,7 @@ it('should be able to create an object without a modifiers obj', () => {
 
 it('should create protected object', () => {
   const human = { name: 'John', lastName: 'Doe' };
-  const myObj = rondel.createProtected({
+  const myObj = rondel.create().protected({
     obj: human,
     modifiers: {},
   });
@@ -87,7 +87,7 @@ it('should create protected object', () => {
 it('should create protected object and throw error', () => {
   try {
     const human = { name: 'John', lastName: 'Doe' };
-    const myObj = rondel.createProtected({
+    const myObj = rondel.create().protected({
       obj: human,
       modifiers: { setNotAllowed: true },
     });
@@ -100,7 +100,7 @@ it('should create protected object and throw error', () => {
 it('should not allow to set private property', () => {
   try {
     const human = { name: 'John', _secretProp: 'shhh!' };
-    const myObj = rondel.createProtected({
+    const myObj = rondel.create().protected({
       obj: human,
       modifiers: { restrictedPrivates: true },
     });
@@ -113,7 +113,7 @@ it('should not allow to set private property', () => {
 
 describe('should be able to control default props from exposeDefault', () => {
   it('returns null from unset prop', () => {
-    const myObj = rondel.createProtected({
+    const myObj = rondel.create().protected({
       obj: { id: 1, value: 'Random value' },
       modifiers: { exposeDefault: null },
     });
@@ -121,7 +121,7 @@ describe('should be able to control default props from exposeDefault', () => {
   });
   it('calls spyFunction from unset prop', () => {
     const spyFunction = jest.fn();
-    const myObj = rondel.createProtected({
+    const myObj = rondel.create().protected({
       obj: { id: 1, value: 'Random value' },
       modifiers: { exposeDefault: spyFunction },
     });
@@ -129,14 +129,14 @@ describe('should be able to control default props from exposeDefault', () => {
     expect(spyFunction).toHaveBeenCalled();
   });
   it('returns empty string from unset prop', () => {
-    const myObj = rondel.createProtected({
+    const myObj = rondel.create().protected({
       obj: { id: 1, value: 'Random value' },
       modifiers: { exposeDefault: '' },
     });
     expect(myObj.doesNotExist).toEqual('');
   });
   it('returns empty array from unset prop', () => {
-    const myObj = rondel.createProtected({
+    const myObj = rondel.create().protected({
       obj: { id: 1, value: 'Random value' },
       modifiers: { exposeDefault: [] },
     });
@@ -147,7 +147,7 @@ describe('should be able to control default props from exposeDefault', () => {
 });
 
 describe('should be able to interact with Objects through getProtected', () => {
-  const arr = rondel.getProtected([
+  const arr = rondel.create().searchable([
     {
       name: 'John',
       age: 30,
