@@ -1,6 +1,6 @@
 {
   "name": "rondel",
-  "version": "1.0.6",
+  "version": "1.1.0",
   "description": "Javascript library that makes use of the Proxy API to control objects through the use of handlers.",
   "main": "build/index.js",
   "scripts": {
